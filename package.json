@@ -1,0 +1,21 @@
+{
+  "name": "PoC",
+  "version": "0.0.1",
+  "description": "Heroku PoC",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "PoC",
+    "Test",
+    "Heroku"
+  ],
+  "author": "Netgio",
+  "license": "MIT",
+  "dependencies": {
+    "logfmt": "~0.18.1",
+    "express": "~3.4.7"
+  }
+}
