@@ -8,7 +8,7 @@ Type "npm install Express"
 
 var express = require('express');
 var app = express();
-port = process.argv[2] || 8000;
+port = process.env.PORT || 8000;
 
 app.configure(function () {
     app.use(
