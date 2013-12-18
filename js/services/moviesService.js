@@ -2,7 +2,7 @@ dynatrumpApp.factory("moviesService", function($http){
     var _movies = [];
 
     var _getMovies = function(){
-        $http.get("/js/data/movies.json")
+        $http.get("/movies")
             .then(function(results){
                 //Success
                 angular.copy(results.data, _movies); //this is the preferred; instead of $scope.movies = result.data
@@ -12,12 +12,14 @@ dynatrumpApp.factory("moviesService", function($http){
     }
 
     var _addNewMovie = function(movie){
-        _movies.splice(0, 0, movie);
+        _movies.splice(_movies.length, 0, movie);
+        $http.post("/movies", movie);
     }
 
     var _deleteMovie = function(movie){
         var pos = _movies.indexOf(movie);
         _movies.splice(pos, 1);
+        $http.delete("/movies/" + pos);
     }
     
     var _rateMovie = function(movie, rating){
@@ -25,6 +27,7 @@ dynatrumpApp.factory("moviesService", function($http){
     	movie.rating = rating; // I know it's not the average!!
     	movie.averageRating = (movie.averageRating+rating)/2; // I know it's not the average!!
     	console.log(movie.name + " rated " + rating + " - average is now " + movie.averageRating);
+    	$http.put("/movies/"+ _movies.indexOf(movie), movie);
     }
     
     return{
