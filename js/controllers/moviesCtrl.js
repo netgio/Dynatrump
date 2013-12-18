@@ -8,9 +8,13 @@ dynatrumpApp.controller("MoviesCtrl", function ($scope, moviesService){
     
     moviesService.getMovies();
 
-    $scope.addNewMovie = function(movieName){
-        var movie = {name: movieName};
+    $scope.addNewMovie = function(movieName, year){
+        var movie = {name: movieName , averageRating: 5, rating: "NR", releaseYear: year};
         moviesService.addNewMovie(movie);
+    };
+    
+    $scope.deleteMovie = function(movie){
+        moviesService.deleteMovie(movie);
     };
     
     $scope.rateMovie = function(movie, rating){

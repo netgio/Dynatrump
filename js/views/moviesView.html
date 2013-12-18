@@ -1,11 +1,13 @@
 <div>
-    <input type="text" ng-model="newMovie.name">
-    <button ng-click="addNewMovie(newMovie.name)">Add Item</button><br>
+    Name: <input type="text" ng-model="newMovie.name">
+    Year: <input type="text" ng-model="newMovie.year">
+    <button ng-click="addNewMovie(newMovie.name, newMovie.year)">Add Item</button><br>
     <hr>
 	<div ng-repeat="movie in movies">
         <a href="{{movie.url}}">{{movie.name}}</a>
         Your Rating ({{movie.rating}})<div dt-rating rating-value="movie.rating" max="10" on-rating-selected="rateMovie(movie, rating)"></div> 
         Average Rating ({{movie.averageRating}})<div dt-rating rating-value="movie.averageRating" max="10" readonly="true"></div> 
+        <button ng-click="deleteMovie(movie)">Delete</button>
         <hr>
     </div>
 </div>
