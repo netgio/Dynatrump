@@ -1,15 +1,21 @@
 <html ng-app="dynatrumpApp">
 <head>
-    <title>Theater</title>
+    <title>Dynatrump PoC</title>
     
 </head>
 <body ng-init="rating = 5">
     <link rel="stylesheet" type="text/css" href="js/css/dtRating.css" />
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    
     <div ng-view=""></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
     <script src="js/dynatrumpApp.js"></script>
     <script src="js/controllers/moviesCtrl.js"></script>
+    <script src="js/controllers/ratingCtrl.js"></script>
     <script src="js/services/moviesService.js"></script>
+    
+    <script src="js/ui-bootstrap-tpls-0.7.0.js"></script>
+    
 </body>
 </html>
 
