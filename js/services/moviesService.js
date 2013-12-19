@@ -24,10 +24,11 @@ dynatrumpApp.factory("moviesService", function($http){
     
     var _rateMovie = function(movie, rating){
         // update this movie instance or find the instance in the _movies collection and update it...
-    	movie.rating = rating; // I know it's not the average!!
-    	movie.averageRating = (movie.averageRating+rating)/2; // I know it's not the average!!
-    	console.log(movie.name + " rated " + rating + " - average is now " + movie.averageRating);
-    	$http.put("/movies/"+ _movies.indexOf(movie), movie);
+    	if (!isNaN(rating)){
+    		movie.rating = rating; // I know it's not the average!!
+	    	movie.averageRating = (movie.averageRating+rating)/2; // I know it's not the average!!
+	    	$http.put("/movies/"+ _movies.indexOf(movie), movie);
+    		}
     }
     
     return{
